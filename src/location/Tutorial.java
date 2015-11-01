@@ -35,10 +35,7 @@ public class Tutorial extends Location{
 
 	@Override
 	public void draw(Graphics2D g) {
-		g.setColor(Color.BLACK);
-		for(int x=0; x<buttons.size(); x++){
-			buttons.get(x).draw(g);
-		}
+		super.draw(g);
 		
 	}
 
@@ -56,15 +53,7 @@ public class Tutorial extends Location{
 
 	@Override
 	public void mousePressed(MouseEvent e, GameHandler g) {
-		for(int i=0; i<buttons.size(); i++){
-			if(buttons.get(i).containsPoint((int)e.getX(), (int)e.getY())){
-				if(e.getButton()==1){
-					g.setLocation(links.get(i));
-				}
-				break;
-			}
-		}
-		
+		super.mousePressed(e, g);
 	}
 
 }
