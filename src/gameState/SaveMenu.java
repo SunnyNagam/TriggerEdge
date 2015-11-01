@@ -122,7 +122,7 @@ public class SaveMenu extends GameState{		// save menu
 	
 	public void mousePressed(MouseEvent e) {					// mouse controls for save menu
 		for(int i=0; i<options.length; i++){
-			if(options[i].containsPoint((int)e.getX()/2, (int)e.getY()/2)){
+			if(options[i].containsPoint((int)e.getX(), (int)e.getY())){
 				if(e.getButton()==1)
 					select(i);
 				else

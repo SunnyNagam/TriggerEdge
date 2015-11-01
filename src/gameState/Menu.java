@@ -64,7 +64,7 @@ public class Menu extends GameState{			// main menu
 	public void mousePressed(MouseEvent e) {											// mouse controls for buttons
 		System.out.print(e.getX()+", "+e.getY()+" ");
 		for(int i=0; i<options.length; i++){
-			if(options[i].containsPoint((int)e.getX()/2, (int)e.getY()/2)){
+			if(options[i].containsPoint((int)e.getX(), (int)e.getY())){
 				select(i);
 				break;
 			}
