@@ -13,7 +13,7 @@ public class Menu extends GameState{			// main menu
 	
 	private int curChoice = 0;
 	// buttons
-	private Button[] options = { new Button("Start",145,140,15,60), new Button("Help",145,155,15,60), new Button("Quit",145,170,15,60)};
+	private Button[] options = { new Button("Start",145,140,15,60), new Button("Help",145,165,15,60), new Button("Quit",145,185,15,60)};
 	
 	public Menu(Game g){		// constructor
 	}
