@@ -10,12 +10,18 @@ import main.Game;
 import utilites.Button;
 
 public abstract class Location {
+	
 	protected ArrayList<Location> links = new ArrayList<Location>();
 	protected ArrayList<Button> buttons = new ArrayList<Button>();
 	protected String name;
+	
 	public abstract void init();
+	
 	public abstract void update();
-	public abstract void load();
+	
+	//Method that is defined by each specific location class
+	public abstract void load();									
+	
 	public void draw(java.awt.Graphics2D g){
 		g.setColor(Color.BLACK);
 		g.drawString("Current Room: "+name,Game.WIDTH/2-100, 50);
@@ -23,8 +29,11 @@ public abstract class Location {
 			buttons.get(x).draw(g);
 		}
 	}
+	
 	public abstract void keyPressed(int k);
+	
 	public abstract void keyReleased(int k);
+	
 	public void mousePressed(MouseEvent e, GameHandler g){
 		for(int i=0; i<buttons.size(); i++){
 			if(buttons.get(i).containsPoint((int)e.getX(), (int)e.getY())){
@@ -35,5 +44,6 @@ public abstract class Location {
 			}
 		}
 	}
+	
 	public void mouseEntered(MouseEvent e) {}
 }

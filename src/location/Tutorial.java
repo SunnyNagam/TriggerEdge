@@ -14,7 +14,7 @@ public class Tutorial extends Location{
 		name = "Tutorial";
 	}
 	
-	public void load(){
+	public void load(){										//Hardcodes the rooms linking from this room
 		Location e = new Room1();
 		links.add(e);
 		for(int x=0; x<links.size(); x++){
