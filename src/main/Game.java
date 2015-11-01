@@ -21,8 +21,8 @@ import javax.swing.JPanel;
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener{
 
 	//dimensions
-	public static final int WIDTH = 320;
-	public static final int HEIGHT = 240;
+	public static final int WIDTH = 600;
+	public static final int HEIGHT = 300;
 	public static final int SCALE = 2;
 	
 	//game thread
@@ -36,7 +36,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	private Graphics2D g;
 	
 	// game states
-	private static ArrayList<GameState> gameStates = new ArrayList<GameState>();    // Creates arryList to keep track of gamestates
+	public static ArrayList<GameState> gameStates = new ArrayList<GameState>();    // Creates arryList to keep track of gamestates
 	private static int currentState = 0;
 	public static final int MENUSTATE = 0;
 	public static final int SAVEMENUSTATE = 1;
@@ -71,7 +71,6 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		running = true;
 		gameStates.add(new Menu(this));
 		gameStates.add(new SaveMenu(this));
-		//gameStates.add(new World());
 	}
 	
 	public void run(){								// runs game

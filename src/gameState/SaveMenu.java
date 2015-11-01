@@ -72,10 +72,11 @@ public class SaveMenu extends GameState{		// save menu
 		load_scr = true;
 		for(int y = 0; y < options.length-1; y++) {
 			if(selected == y && new File(optionDir[y]).exists()) {
-		//		World.loadWorldMap(optionDir[y]);				//Load world
+				Game.gameStates.add(new GameHandler(optionDir[y], false));
 				Game.setCurrentState(Game.getCurrentState()+1);	//Change game state to that world
 			}
 			else if (selected == y && selected != options.length-1) {		// create save
+				System.out.println("joasidjfisdfj");
 				String newSave;
 				for(int x=0; ;x++)
 					if(!new File("src/SaveFiles/DefaultName"+String.valueOf(x)).exists()){
@@ -91,7 +92,8 @@ public class SaveMenu extends GameState{		// save menu
 					System.out.println("Save creation failed!");
 					e.printStackTrace();
 				}
-				//World.blockMap.createWorldMap(newSave);
+				Game.gameStates.add(new GameHandler(newSave, true));
+				Game.setCurrentState(Game.getCurrentState()+1);	
 				output.close();
 				break;
 			}

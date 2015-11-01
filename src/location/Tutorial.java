@@ -29,8 +29,8 @@ public class Tutorial extends Location{
 	public void draw(Graphics2D g) {
 		g.setColor(Color.BLACK);
 		for(int x=0; x<links.size(); x++){
-			g.drawRect(10+200*x, 100, 300, 100);
-			g.drawString(links.get(x).name, 10+200*x+10, 150);
+			g.drawRect(10+100*x, 100, 100, 100);
+			g.drawString(links.get(x).name, 10+100*x+10, 150);
 		}
 		
 	}

@@ -13,9 +13,11 @@ public class GameHandler extends GameState{
 	String file;
 	
 	public GameHandler(String file, boolean newGame){
+		System.out.println("in gamehandler constructor");
 		this.file = file;
 		if(newGame){
 			location = new Tutorial();
+			location.load();
 		}
 		else{
 			//read from save to get current location and set it to var 'location'
