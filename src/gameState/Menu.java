@@ -13,7 +13,11 @@ public class Menu extends GameState{			// main menu
 	
 	private int curChoice = 0;
 	// buttons
-	private Button[] options = { new Button("Start",145,140,15,60), new Button("Help",145,165,15,60), new Button("Quit",145,185,15,60)};
+	private Button[] options = { 
+			new Button("Start",290,280,30,120), 
+			new Button("Help", 290,330,30,120), 
+			new Button("Quit", 290,370,30,120)
+	};
 	
 	public Menu(Game g){		// constructor
 	}
@@ -27,10 +31,10 @@ public class Menu extends GameState{			// main menu
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		
 		g.setColor(Color.BLACK);
-		g.setFont(new Font("Tahoma",Font.BOLD,28));
-		g.drawString("TriggerEdge", 80, 70);
+		g.setFont(new Font("Tahoma",Font.BOLD,56));
+		g.drawString("TriggerEdge", 160, 140);
 		
-		g.setFont(new Font("Tahoma",Font.BOLD,18));
+		g.setFont(new Font("Tahoma",Font.BOLD,36));
 		for(int i=0; i<options.length; i++)
 			options[i].draw(g);
 	}
