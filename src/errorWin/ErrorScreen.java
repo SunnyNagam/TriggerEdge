@@ -6,7 +6,7 @@ public class ErrorScreen{
 	
 	public ErrorScreen(String message){
 		
-		JFrame window = new JFrame("ERROR");					//Creates the window
+		JFrame window = new JFrame("ERfROR");					//Creates the window
 		
 		window.setContentPane(new ErrorContent(message));		//What the Window will display (the components)
 		
