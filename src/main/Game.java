@@ -21,9 +21,8 @@ import javax.swing.JPanel;
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener{
 
 	//dimensions
-	public static final int WIDTH = 600;
-	public static final int HEIGHT = 300;
-	public static final int SCALE = 2;
+	public static final int WIDTH = 1200;
+	public static final int HEIGHT = 600;
 	
 	//game thread
 	private Thread thread;
@@ -49,7 +48,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	
 	public Game(){			// Game constructor
 		super();
-		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT *SCALE));
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
 		requestFocus();
 	}
@@ -106,7 +105,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	
 	private void drawToScreen() {						// scales and draws game with formating
 		Graphics g2 = getGraphics();
-		g2.drawImage(image, 0, 0, WIDTH *SCALE,  HEIGHT *SCALE, null);
+		g2.drawImage(image, 0, 0, WIDTH,  HEIGHT, null);
 		g2.dispose();
 	}
 	
