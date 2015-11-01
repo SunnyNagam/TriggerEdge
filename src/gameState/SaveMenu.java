@@ -19,7 +19,7 @@ public class SaveMenu extends GameState{		// save menu
 	
 	private int curChoice = 0;	
 	// buttons
-	private Button[] options = { new Button("New Save",70,100,30,60), new Button("New Save",70,130,30,60), new Button("New Save",70,160,30,60), new Button("< Back",5,215,20,70)};
+	private Button[] options = { new Button("New Save",140,200,60,120), new Button("New Save",140,260,60,120), new Button("New Save",140,320,60,120), new Button("< Back",10,430,40,140)};
 	// folder containing saves
 	private File folder = new File("src/SaveFiles");
 	// all the files in the folder
@@ -47,14 +47,14 @@ public class SaveMenu extends GameState{		// save menu
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		
 		g.setColor(Color.BLACK);		// sets text color and font
-		g.setFont(new Font("Tahoma",Font.BOLD,28));
+		g.setFont(new Font("Tahoma",Font.BOLD,56));
 		
 		if(load_scr)					// displays loading screen
-			g.drawString("LOADING", 75, 70);
+			g.drawString("LOADING", 150, 140);
 		else{							// displays saves 
-			g.drawString("Choose your save:", 35, 70);
+			g.drawString("Choose your save:", 70, 140);
 
-			g.setFont(new Font("Tahoma",Font.BOLD,18));
+			g.setFont(new Font("Tahoma",Font.BOLD,36));
 
 
 			for(int i=0; i < options.length-1; i++) {
