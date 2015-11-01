@@ -20,40 +20,36 @@ import javax.swing.JPanel;
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener{
 
-	//dimensions
+	// Dimensions of game screen
 	public static final int WIDTH = 1200;
 	public static final int HEIGHT = 600;
 	
-	//game thread
+	// Game thread
 	private Thread thread;
 	private boolean running; 
 	private int FPS = 60;
 	private long targetTime = 1000/FPS; 
 	
-	//image
+	// Image variables
 	private BufferedImage image;
 	private Graphics2D g;
 	
-	// game states
+	// Creating the gamestates that the game will run in
 	public static ArrayList<GameState> gameStates = new ArrayList<GameState>();    // Creates arryList to keep track of gamestates
 	private static int currentState = 0;
 	public static final int MENUSTATE = 0;
 	public static final int SAVEMENUSTATE = 1;
 	public static final int WORLDSTATE = 2;
 	
-	
-	public static void setState(int state){			// Function that allows other classes and the current state to change the state and move the game to the next state
-		setCurrentState(state);
-	}
-	
-	public Game(){			// Game constructor
+	public Game(){
 		super();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
 		requestFocus();
 	}
 	
-	public void addNotify(){				// declares parent status and adds listeners
+	// Declares parent status and adds listeners
+	public void addNotify(){				
 		super.addNotify();
 		if(thread == null){
 			thread = new Thread(this);
@@ -63,19 +59,19 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 	}
 	
-	
-	private void init(){							// initalizes game states
+	private void init(){							
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		g = (Graphics2D) image.getGraphics();
 		running = true;
-		gameStates.add(new Menu(this));
+		gameStates.add(new Menu(this));			// Initializes game states
 		gameStates.add(new SaveMenu(this));
 	}
 	
-	public void run(){								// runs game
+	public void run(){
 		init();
 		
-		long start, elapsed, wait;					//Vars to keep track of game's run times
+		//Vars to keep track of game's run times
+		long start, elapsed, wait;					
 		while(running){
 			start = System.nanoTime();
 			
@@ -111,24 +107,23 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 	
 	public void keyTyped(KeyEvent key) {}
 	
-	public void keyPressed(KeyEvent key) {			// updates key actions
+	public void keyPressed(KeyEvent key) {
 		gameStates.get(getCurrentState()).keyPressed(key.getKeyCode());
 	}
-	public void keyReleased(KeyEvent key) {			// updates key actions
+	public void keyReleased(KeyEvent key) {
 		gameStates.get(getCurrentState()).keyReleased(key.getKeyCode());
 	}
 
-	public void mouseClicked(MouseEvent e) {
-	}
+	public void mouseClicked(MouseEvent e) {}
 
-	public void mousePressed(MouseEvent e) {		// updates mouse actions
+	public void mousePressed(MouseEvent e) {
 		gameStates.get(getCurrentState()).mousePressed(e);
 		System.out.println(e.getX()/2+", "+e.getY()/2);
 	}
 
 	public void mouseReleased(MouseEvent e) {}
 
-	public void mouseEntered(MouseEvent e) {		// updates mouse actions
+	public void mouseEntered(MouseEvent e) {
 		gameStates.get(getCurrentState()).mouseEntered(e);
 	}
 
@@ -140,6 +135,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		return currentState;
 	}
 
+	// Function that allows other classes and the current state to change the state and move the game to the next state
 	public static void setCurrentState(int currentState) {
 		Game.currentState = currentState;
 	}

@@ -9,24 +9,23 @@ import java.awt.event.MouseEvent;
 import utilites.Button;
 import main.Game;
 
-public class Menu extends GameState{			// main menu
-	
+// The game's main menu
+public class Menu extends GameState{
 	private int curChoice = 0;
-	// buttons
+	// Declaring buttons on Menu
 	private Button[] options = { 
 			new Button("Start",290,280,30,120), 
 			new Button("Help", 290,330,30,120), 
 			new Button("Quit", 290,370,30,120)
 	};
 	
-	public Menu(Game g){		// constructor
-	}
+	public Menu(Game g){}
 	
 	public void init() {}
 	
 	public void update() {}
 	
-	public void draw(Graphics2D g) {					// draws main menu
+	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		
@@ -39,15 +38,18 @@ public class Menu extends GameState{			// main menu
 			options[i].draw(g);
 	}
 	
-	private void select(int x){							// selects option
+	private void select(int x){
+		// Used to select the option
 		if(x==0)
 			Game.setCurrentState(Game.getCurrentState()+1);
-		else if(x==1)								// help screen todo
-			;
+		else if(x==1){								
+			// TODO Help screen
+		}
 		else
 			System.exit(0);	
 	}
-	public void keyPressed(int k) {							// key controls for the  menu
+	public void keyPressed(int k) {
+		// Key controls for menu selection
 		if(k==KeyEvent.VK_ENTER)
 			select(curChoice);
 		if(k==KeyEvent.VK_UP){
@@ -65,7 +67,7 @@ public class Menu extends GameState{			// main menu
 	
 	public void keyReleased(int k) {}
 	
-	public void mousePressed(MouseEvent e) {											// mouse controls for buttons
+	public void mousePressed(MouseEvent e) {
 		System.out.print(e.getX()+", "+e.getY()+" ");
 		for(int i=0; i<options.length; i++){
 			if(options[i].containsPoint((int)e.getX(), (int)e.getY())){

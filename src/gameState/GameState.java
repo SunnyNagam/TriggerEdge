@@ -2,7 +2,9 @@ package gameState;
 
 import java.awt.event.MouseEvent;
 
-public abstract class GameState {				// super class for all game states (world, menus...)
+// Super class for all game states (world, menus...)
+// Game states dictate what the game does
+public abstract class GameState {				
 	public abstract void init();
 	public abstract void update();
 	public abstract void draw(java.awt.Graphics2D g);

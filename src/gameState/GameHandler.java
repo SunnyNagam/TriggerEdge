@@ -9,17 +9,17 @@ import location.Tutorial;
 import main.Game;
 
 public class GameHandler extends GameState{
-	//This is the location that the game handler 'handles' and is the current room that the player is in
+	// This is the location that the game handler 'handles' and is the current room that the player is in
 	private Location location;				
-	//Stores the name of the file where the location's data is saved (blockmap)
+	// Stores the name of the file where the location's data is saved (blockmap)
 	String file;							
 	
 	public GameHandler(String file, boolean newGame){
 		System.out.println("in gamehandler constructor");
 		this.file = file;
 		if (newGame){	
-			location = new Tutorial();							//Creating a new instance of a room from tutorial, as it is the first room that exists when starting a new game
-			location.load();									//Establishing the links to the room
+			location = new Tutorial();							// Creating a new instance of a room from tutorial, as it is the first room that exists when starting a new game
+			location.load();									// Establishing the links to the room
 		}
 		else{
 			//TODO read from save to get current location and set it to var 'location'
