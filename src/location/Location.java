@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import main.Game;
 import utilites.Button;
 
 public abstract class Location {
@@ -17,6 +18,7 @@ public abstract class Location {
 	public abstract void load();
 	public void draw(java.awt.Graphics2D g){
 		g.setColor(Color.BLACK);
+		g.drawString("Current Room: "+name,Game.WIDTH/2-100, 50);
 		for(int x=0; x<buttons.size(); x++){
 			buttons.get(x).draw(g);
 		}
